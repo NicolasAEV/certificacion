@@ -1,0 +1,48 @@
+/* import font  */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
+
+/* guardaremos la variables de colores */
+:root{
+    --principal-color-letter : rgb(51, 132, 137);
+    --principal-background-color : rgb(255, 255, 255);
+    --blur-principal : rgba(80, 95, 107, 0.1);
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    /* font-family: 'Josefin Sans', sans-serif; */
+    color: black;
+    font-family: 'Roboto', sans-serif;
+}
+h1{
+    color : var( --principal-color-letter)
+}
+a{
+    text-decoration: none;
+}
+.navbar-nav a:hover{
+    color : var( --principal-color-letter)
+}
+a:hover{
+    color : var( --principal-color-letter)
+}
+.footer a:hover{
+    color : var( --principal-color-letter)
+}
+
+.publicacionesCard{
+    border: none;
+    transition-duration: 0.5s;
+    text-decoration: none;
+}
+.publicacionesCard:hover{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border: none;
+}
+.asc {
+    padding: 2px;
+    background-color: aqua;
+    text-align: center;
+}

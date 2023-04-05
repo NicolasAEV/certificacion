@@ -22,6 +22,7 @@ import apiLogin from './routes/login.routes.js'
 //prueba api-rest
 import apiArticulo from './routes/articulo.routes.js'
 import apiComentario from './routes/comentario.routes.js'
+import apiCategoria from './routes/categoria.routes.js'
 //pagina no encontrada
 import err404 from './routes/404.routes.js'
 
@@ -49,6 +50,8 @@ app.use(routerViews)
 app.use(apiLogin)
 app.use(apiArticulo)
 app.use(apiComentario)
+app.use(apiCategoria)
+
 
 // 
 app.use(err404)

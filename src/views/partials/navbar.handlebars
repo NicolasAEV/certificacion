@@ -19,13 +19,13 @@
           </a>
           <ul class="dropdown-menu">
             {{#each categoria}}
-            <li><a class="dropdown-item"  href="#">{{this.nombre}}</a></li>
+            <li><a href="/categoria/{{this.id}}" class="dropdown-item"  href="#">{{this.nombre}}</a></li>
             {{/each}}
           </ul>
         </li>
         <li class="nav-item">
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <form id="formularioBuscar" action="/buscar" method="post" class="d-flex" role="search">
+            <input class="form-control me-2" type="search" name="buscar" id="buscar" placeholder="Search" aria-label="Search" required>
             <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
         </li>
@@ -55,3 +55,4 @@
 {{!-- peticiones login and register --}}
 
 <script src="/js/peticionLogin.js"></script>
+<script src="/js/peticionBuscar.js"></script>

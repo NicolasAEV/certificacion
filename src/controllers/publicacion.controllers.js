@@ -4,17 +4,50 @@ import fs from 'fs'
 import path from 'path'
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { Publicacion } from "../models/Publicacion.models.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+import { Publicacion } from '../models/Publicacion.models.js';
 
-export const getAllPublication = async (req, res) => {
 
+export const getAllPublicationApi = async (req, res) => {
+
+
+    try {
+        //obtenemos todas las publicaciones y ordenamos de manera descendente por fecha
+        let publicaciones = await Publicacion.findAll({ raw: true, order: [['fecha', 'DESC']]});
+        if(publicaciones){
+            res.status(200).json({code:200 , data : publicaciones})
+        }else{
+            res.status(500).json({code:200 , message : 'no se encontraron articulos'})
+
+        }
+        //obtenemos todas las categorias y ordenamos de manera dec por id
+      
+    } catch (error) {
+        console.log(error.stack)
+        res.status(500).json({code:500 , message : error})
+        
+    }
 }
 
-export const getPublicacionById = async (req, res) => {
+export const getPublicacionByIdApi = async (req, res) => {
+    try {
+        let { id } = req.params
+        if(id){
+            let publicacion = await Publicacion.findByPk(id, { raw: true })
+            res.status(200).json({code:200 , data : publicacion})
+        }else{
+            res.status(500).json({code:500 , message : 'debes proporcionar el id'})
 
+        }
+     
+        
+    } catch (error) {
+        console.log(error.stack)
+        res.status(500).json({code:500 , message : error})
+        
+    }
 }
 
 export const addPublication = async (titulo, descripcion, imagen, id_usuario, fecha,categoria) => {

@@ -24,7 +24,7 @@ publicarNoticia.addEventListener("submit", (event) => {
         console.log(result.code,result.message)
         if(result.code ==200){
             alert(result.message)
-            location.href = '/'
+            location.reload()
         }else{
             alert(result.message)
         }

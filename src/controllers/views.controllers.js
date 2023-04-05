@@ -3,7 +3,7 @@ import { Categoria } from '../models/Categoria.models.js';
 import { Publicacion } from '../models/Publicacion.models.js';
 import { Comentario } from '../models/Comentario.models.js';
 import { Usuario } from '../models/Usuario.models.js';
-
+import { Op } from "sequelize"
 export const getPublicaciones = async (req, res) => {
     //obtenemos todas las publicaciones y ordenamos de manera descendente por fecha
     let publication = await Publicacion.findAll({
@@ -78,4 +78,50 @@ export const getDetailsByID = async (req, res) => {
         categoria,
         comentario: newObjeto
     })
+}
+
+export const searchArticle = async (req,res)=>{
+    let {buscar} = req.body;
+    let publicaciones = await Publicacion.findAll({raw : true,where :{titulo :{[Op.substring]:buscar} } })
+    let categoria = await Categoria.findAll({ raw: true, attributes: ['id', 'nombre'], order: [['nombre', 'DESC']] })
+    console.log('aca' , publicaciones)
+    res.render('publicaciones', {
+        title: 'buscar',
+        publication: publicaciones,
+        categoria: categoria
+    })
+}
+
+export const searchCategoria = async (id)=>{
+    console.log(id,"paso")
+    let publication = await Publicacion.findAll({
+        raw: true,
+        include: {
+            model: Categoria,
+            where :{id : id}
+        }
+    })
+    console.log(publication , 'oye')
+    return publication
+}
+
+export const getCategoriaArticle = async (req,res) =>{
+
+    let {id} = req.params
+    let categoria = await Categoria.findAll({ raw: true, attributes: ['id', 'nombre'], order: [['nombre', 'DESC']] })
+    console.log(id)
+    searchCategoria(id)
+    .then(publicaciones => { 
+        res.render("publicaciones",{
+            title : 'busqueda por categoria',
+            publication: publicaciones ,
+            categoria
+        })
+    })
+        .catch(error => {
+            res.render("publicaciones",{
+                error: "No se pudieron cargar las categorias",
+                categoria
+            })
+        })
 }

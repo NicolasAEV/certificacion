@@ -1,4 +1,6 @@
 //rescatamos el formulario completo
+
+
 let formularioComentario = document.getElementById("formularioComentario");
 //llamamos al evento submit 
 

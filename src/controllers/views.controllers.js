@@ -82,7 +82,7 @@ export const getDetailsByID = async (req, res) => {
 
 export const searchArticle = async (req,res)=>{
     let {buscar} = req.body;
-    let publicaciones = await Publicacion.findAll({raw : true,where :{titulo :{[Op.substring]:buscar} } })
+    let publicaciones = await Publicacion.findAll({raw : true,where :{descripcion :{[Op.substring]:buscar} } })
     let categoria = await Categoria.findAll({ raw: true, attributes: ['id', 'nombre'], order: [['nombre', 'DESC']] })
     console.log('aca' , publicaciones)
     res.render('publicaciones', {

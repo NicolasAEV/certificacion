@@ -1,6 +1,7 @@
 //rescatamos el formulario completo
 
 
+
 let formularioComentario = document.getElementById("formularioComentario");
 //llamamos al evento submit 
 
@@ -29,7 +30,13 @@ formularioComentario.addEventListener("submit", (event) => {
             location.reload()
         }else{
             alert(result.message)
+          
         }
     })
     .catch(error => console.log('error', error));
 })
+
+let comentario = document.getElementsByClassName('comentario')
+let tokens = localStorage.getItem('jwt');
+
+

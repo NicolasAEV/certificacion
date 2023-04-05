@@ -8,8 +8,8 @@ import { createPublication, getAllPublicationApi, getPublicacionByIdApi } from '
 router.post('/api/v1/articulo',verificarTokenUsuario,upload,createPublication,(req,res)=>{})
 // router.post('/api/v1/regitro',registrarUsuario ,upload,(req,res)=>{})
 
-
 router.get('/api/v1/articulo',getAllPublicationApi,(req,res)=>{})
+
 router.get('/api/v1/articulo/:id',getPublicacionByIdApi,(req,res)=>{})
 
 

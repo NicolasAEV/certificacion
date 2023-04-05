@@ -20,7 +20,6 @@ export const getAllPublicationApi = async (req, res) => {
             res.status(200).json({code:200 , data : publicaciones})
         }else{
             res.status(500).json({code:200 , message : 'no se encontraron articulos'})
-
         }
         //obtenemos todas las categorias y ordenamos de manera dec por id
       
@@ -39,14 +38,11 @@ export const getPublicacionByIdApi = async (req, res) => {
             res.status(200).json({code:200 , data : publicacion})
         }else{
             res.status(500).json({code:500 , message : 'debes proporcionar el id'})
-
         }
-     
         
     } catch (error) {
         console.log(error.stack)
         res.status(500).json({code:500 , message : error})
-        
     }
 }
 

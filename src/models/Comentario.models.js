@@ -21,7 +21,7 @@ export const Comentario  = sequelize.define('Comentario',{
         }
     },
     descripcion : {
-        type : DataTypes.STRING(4000),
+        type : DataTypes.STRING(200),
         allowNull: false,
         validate: { 
             notEmpty: true

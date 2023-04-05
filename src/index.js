@@ -14,7 +14,7 @@ const main = async () =>{
     try {
         await sequelize.authenticate();
         console.log('contectado con exito')
-        await sequelize.sync({force:true , alter:true ,create:true});
+        await sequelize.sync({force:false , alter:false ,create:false});
         //rescatamos el valor del puerto y en caso de error dejamos por defecto el puerto 3000
         let PORT =process.env.PORT || 3000;
         app.listen(PORT , ()=>console.log('servidor en el puerto' + PORT))

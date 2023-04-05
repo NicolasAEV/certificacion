@@ -1,0 +1,38 @@
+<div class="row row-cols-1  row-cols-md-1">
+    <div class="col ">
+        <form id="publicarNoticia">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Titulo de la noticia</label>
+                <input type="text" class="form-control" id="titulo" name="titulo" maxlength="60" placeholder="titulo"
+                    required>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Descripcion de la noticia</label>
+                <textarea class="form-control" id="descripcion" name="descripcion" rows="4" maxlength="4000"
+                    required></textarea>
+            </div>
+            <div class="mb-3">
+                <select class="form-select col" id="categoria" name="categoria" aria-label="Default select example">
+                {{#each categoria}}
+                <option value="{{this.id}}">{{this.nombre}}</option>
+                {{/each}}
+            </div>
+            <div class=" m-2">
+                <label for="formFile" class="form-label">Imagen de la noticia</label>
+                <input class="form-control" type="file" name="imagen" id="imagen" type="file">
+            </div>
+            <div class="mb-3">
+                </select>
+                <button type="submit" class="btn btn-success col">Crear publicacion</button>
+            </div>
+        </form>
+
+    </div>
+    <div class="col my-2">
+        <h5 class="text-center">Mis publicaciones</h5>
+
+        {{>personal-cards}}
+    </div>
+</div>
+
+<script src="/js/peticionPerfil.js"></script>

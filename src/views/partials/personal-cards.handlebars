@@ -1,21 +1,17 @@
-<div class=" my-1">
-    <p>ordenar de forma :</p>
-<button type="button" class="btn btn-outline-primary">Asc</button>
-<button type="button" class="btn btn-outline-primary">Desc</button>
-</div>
-<div class="row row-cols-1">
-    {{#if publication}}
-    {{#each publication}}
+<div class="row row-cols-3">
+    {{#if publicacion}}
+    {{#each publicacion}}
     <a href="/detalle/{{this.id}}" class="col mb-4">
          <div class="card  publicacionesCard" style="col">
             <div class="row no-gutters">
-                <div class="col-sm-3">
+                <div class="col-12">
                     <img class="card-img" src="/img/{{this.imagen}}" alt="imagen de la noticia" style="height: 100px; object-fit: cover">
                 </div>
-                <div class="col-sm-8">
+                <div class="col-12">
                     <div class="card-body">
                         <h5 class="card-title">{{this.titulo}}</h5>
                         <p class="card-text">Fecha :{{calendar this.fecha}}</p>
+                        <p>{{this.descripcion}}</p>
                     </div>
                 </div>
             </div>

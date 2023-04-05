@@ -7,20 +7,25 @@
       </div>
       <div class="modal-body">
         <form id="formularioRegistro">
+             <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" maxlength="40" required>
+          </div>
           <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">email:</label>
-            <input type="email" class="form-control" id="email" name="password" required>
+            <label for="recipient-name" class="col-form-label">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" maxlength="100" required>
           </div>
           <div class="mb-3">
             <label for="message-text" class="col-form-label">Contraseña</label>
-            <input type="password" class="form-control" id="password" name="password" required>
+            <input type="password" class="form-control" id="password" name="password" maxlength="50" required>
           </div>
-        </form>
+       
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+        <button type="submit" class="btn btn-primary">Registrar</button>
       </div>
     </div>
+     </form>
   </div>
 </div>

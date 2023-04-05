@@ -1,0 +1,17 @@
+{{#if comentario}}
+{{#each comentario}}
+<hr>
+<div class="col">
+    <div class="mb-3">
+        <h5>{{this.titulo}}</h5>
+        <p>creado por : {{this.nombre}}</p>
+        <p>{{this.descripcion}}</p>
+    </div>
+</div>
+<hr>
+{{/each}}
+{{else}}
+    <div class="col">
+        <h5 class="text-center">por el momento no se encuentran comentarios</h5>
+    </div>
+{{/if}}

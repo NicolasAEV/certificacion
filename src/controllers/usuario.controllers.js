@@ -1,4 +1,4 @@
-import { Usuario } from "../models/Usuario.model";
+import { Usuario } from "../models/Usuario.models.js";
 
 // funcion crear validar
 export const getUsuarioForValidation = async (email,password) =>{
@@ -15,7 +15,7 @@ export const getUsuarioForValidation = async (email,password) =>{
 export const registrarUsuario = async (req,res) =>{
     try {
         //rescatamos los datos del body
-    let {password,email} = req.body
+    let {nombre,password,email} = req.body
     // buscamos si el email del usuario existe en la bd
     let usuarioEmail = await Usuario.findOne({
         raw : true,
@@ -28,7 +28,7 @@ export const registrarUsuario = async (req,res) =>{
 
     }else{
     //en caso contrario creamos el usuario y mandamos un code 200
-     await Usuario.create({contraseña:password,email:email})
+     await Usuario.create({contraseña:password,email:email,nombre:nombre})
     res.status(200).json({code : 200 , message : 'usuario creado'})
     }
     } catch (error) {
